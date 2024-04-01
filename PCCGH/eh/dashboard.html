@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="stylesheet/dashboard-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-container">
+                <img src="img/logoo.png" alt="logo">
+            </div>
+        </div>
+    </header>
+    
+    <div class="search">
+        <div class="search-filter">
+            <div class="search-bar">
+                <span><img src="img/icons/search-icon.webp" alt="search-icon"></span>
+                <input type="text" placeholder=" Search...">
+            </div>
+            <div class="filter">
+                <select>
+                    <option>Sort By</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+            </div>
+        </div>    
+    </div>
+
+    <div class="dashboard">
+        <div class="dashboard-container">
+            <div class="patient-list">
+                <ul>
+                    <li>
+                        <span class="patient-name">Patient Name 1</span>
+                        <span class="patient-id">Patient ID 1</span>
+                        <button class="view-button" onclick="showDetails('Patient Name 1', 'Patient ID 1')">View</button>
+                    </li>
+                    <!-- Add more patient list items as needed -->
+                </ul>
+            </div>            
+        </div>
+    </div>
+
+     <!-- HTML structure for the dialogue box -->
+     <div id="dialog-box" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideDetails()">&times;</span>
+            <h2 id="modal-patient-name"></h2>
+            <div class="patient-details">
+                <p><strong>Patient ID:</strong> <span id="modal-patient-id"></span></p>
+                <p><strong>Address:</strong> <span id="modal-patient-address"></span></p>
+                <p><strong>Email:</strong> <span id="modal-patient-email"></span></p>
+                <p><strong>Contact Number:</strong> <span id="modal-patient-contact"></span></p>
+                <!-- Add more patient details as needed -->
+            </div>
+            <button onclick="showFormModal()">Generate ID</button>
+        </div>
+    </div>
+
+    <!-- Modal content for patient form -->
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideFormModal()">&times;</span>
+            <h2>Patient Form</h2>
+            <form id="patient-form">
+                <!-- Add form fields here (e.g., input fields for name, address, email, contact number) -->
+                <input type="text" placeholder="Name" name="name">
+                <input type="text" placeholder="Address" name="address">
+                <input type="email" placeholder="Email" name="email">
+                <input type="text" placeholder="Contact Number" name="contact">
+                <!-- Add more form fields as needed -->
+                <button type="button" onclick="generateID()">Generate ID</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script/dashboard-script.js"></script>
+</body>
+</html>
